@@ -10,9 +10,9 @@ model = joblib.load('insurance_rf_model.pkl')
 app = FastAPI()
 
 class UserInput(BaseModel):
-    age:      Annotated[int,   Field(..., ge=18, le=120, description="Age of the person must be between 18 and 120")]
-    bmi:      Annotated[float, Field(..., ge=15, le=100, description="BMI = weight(kg) / height(m)²",range="15-55")]
-    children: Annotated[int,   Field(..., ge=0, le=10,  description="Number of children")]
+    age:      Annotated[int,   Field(..., ge=18, le=65, description="Age of the person must be between 18 and 65")]
+    bmi:      Annotated[float, Field(..., ge=15, le=55, description="BMI = weight(kg) / height(m)²",range="15-55")]
+    children: Annotated[int,   Field(..., ge=0, le=7,  description="Number of children")]
     sex:      Literal['male', 'female']
     smoker:   Literal['yes', 'no']      
     region:   Literal['northeast', 'northwest', 'southeast', 'southwest']
